@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.alexsandev.domain.User;
 import com.alexsandev.repositories.UserRepository;
+import com.alexsandev.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class UserService {
@@ -16,5 +17,9 @@ public class UserService {
 
     public List<User> findAll(){
         return repository.findAll();
+    }
+
+    public User findById(String id){
+        return repository.findById(id).orElseThrow(() -> new ObjectNotFoundException("object not found"));
     }
 }
