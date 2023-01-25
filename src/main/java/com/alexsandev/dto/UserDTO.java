@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import com.alexsandev.domain.User;
 
-public class UserDTO implements Serializable{
+public class UserDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String id;

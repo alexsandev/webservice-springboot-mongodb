@@ -5,6 +5,8 @@ import java.io.Serializable;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import com.alexsandev.dto.UserDTO;
+
 @Document
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -45,6 +47,10 @@ public class User implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public static User fromDTO(UserDTO userDto){
+        return new User(userDto.getId(), userDto.getName(), userDto.getEmail());
     }
 
     @Override
