@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.alexsandev.dto.PostDTO;
+import com.alexsandev.domain.Post;
 import com.alexsandev.services.PostService;
 
 @RestController
@@ -18,7 +18,7 @@ public class PostResource {
     private PostService service;
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public ResponseEntity<PostDTO> findbyId(@PathVariable String id){
-        return ResponseEntity.ok().body(new PostDTO(service.findById(id)));
+    public ResponseEntity<Post> findbyId(@PathVariable String id){
+        return ResponseEntity.ok().body(service.findById(id));
     }
 }
